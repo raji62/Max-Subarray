@@ -1,0 +1,27 @@
+//java code
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+        }
+         int min_sum=0,curr_sum=0,res=0;
+        for(int i=0;i<k;i++){
+            curr_sum+=a[i];
+            min_sum=curr_sum;
+        }
+        for(int i=k;i<n;i++){
+            curr_sum+=a[i]-a[i-k];
+        if(curr_sum<min_sum){
+            min_sum=curr_sum;
+            res=i-(k-1);
+        }
+        }      
+        System.out.println(res+1);
+}
+}
